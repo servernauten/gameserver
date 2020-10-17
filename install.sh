@@ -45,7 +45,7 @@ randompw=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
 
 # Create new user and assign random password.
 
-useradd $newuser
+useradd -m $newuser
 echo $newuser:$randompw | chpasswd
 echo $newuser $randompw > superuser.txt
 usermod -aG sudo servernauten
