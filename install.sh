@@ -1,15 +1,20 @@
 #!/bin/bash
 
+NORMAL='\033[0;39m'
+BLUE='\033[1;34m'
+GREEN='\033[1;32m'
+RED='\033[1;31m'
+
 clear
 
 echo
-echo -e "\t\033[1;34m ================================= \033[0m"
-echo -e "\t\033[1;34m servernauten Install Script V 1.0 \033[0m"
-echo -e "\t\033[1;34m ================================= \033[0m"
+echo -e "\t$BLUE ================================= "
+echo -e "\t$BLUE servernauten Install Script V 1.0 "
+echo -e "\t$BLUE ================================= "
 echo
-echo -e "\t\033[1;32m # \033[0m Was möchten Sie installieren? \033[0m \c"
+echo -e "\t$GREEN # Was möchten Sie installieren? "
 echo
-echo -e "\t\033[1;32m # \033[0m Webinterface\033[1;32m[1]\033[0m Gameserver\033[1;32m[2]\033[0m \c"
+echo -e "\t$GREEN #$NORMAL Webinterface $GREEN [1] $NORMAL Gameserver $GREEN [2] $NORMAL \c"
 
 read installOptions
 
@@ -19,18 +24,18 @@ if [[ "$installOptions" = "1" ]]; then
 
 clear
 echo
-echo -e "\t\033[1;34m ======================================= \033[0m"
-echo -e "\t\033[1;34m servernauten Install Webinterface V 1.0 \033[0m"
-echo -e "\t\033[1;34m ======================================= \033[0m"
+echo -e "\t$BLUE ======================================= "
+echo -e "\t$BLUE servernauten Install Webinterface V 1.0 "
+echo -e "\t$BLUE ======================================= $NORMAL"
 echo
 
 elif [[ "$installOptions" = "2" ]]; then
 
 clear
 echo
-echo -e "\t\033[1;34m ===================================== \033[0m"
-echo -e "\t\033[1;34m servernauten Install Gameserver V 1.0 \033[0m"
-echo -e "\t\033[1;34m ===================================== \033[0m"
+echo -e "\t$BLUE ===================================== "
+echo -e "\t$BLUE servernauten Install Gameserver V 1.0 "
+echo -e "\t$BLUE ===================================== $NORMAL"
 echo
 
 # # # Install Sudo # # #
@@ -39,6 +44,8 @@ apt install sudo -y
 # # # Create User servernauten with random password # # #
 
 # Declare local variables, generate random password.
+## Adding sbin to path ##
+export PATH="$PATH:/sbin:/usr/sbin:usr/local/sbin"
 
 newuser="servernauten"
 randompw=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
@@ -48,6 +55,6 @@ randompw=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
 useradd -m $newuser
 echo $newuser:$randompw | chpasswd
 echo $newuser $randompw > superuser.txt
-usermod -aG sudo servernauten
+usermod -aG sudo $newuser
 
 fi
