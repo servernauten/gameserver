@@ -54,7 +54,17 @@ randompw=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
 
 useradd -m $newuser
 echo $newuser:$randompw | chpasswd
-echo $newuser $randompw > superuser.txt
+echo $newuser $randompw > ../superuser.txt
 usermod -aG sudo $newuser
+
+clear
+echo
+echo -e "\t$BLUE Die Installation des Gameserver wurde erfolgreich beendet. $REDBitte löschen Sie den Ordner /gameserver! "
+echo -e "\t$BLUE Die Superuser Zugangsdaten finden Sie unter $RED /superuser.txt $BLUE - bitte speichern Sie sich die Zugangsdaten lokal ab und löschen Sie die Datei $RED /superuser.txt $BLUE auf dem Server! $NORMAL "
+echo
+
+cd /root
+rm -rf gameserver
+exec bash
 
 fi
