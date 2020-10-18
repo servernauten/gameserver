@@ -71,7 +71,7 @@ echo -e "\t$BLUE Die Superuser Zugangsdaten finden Sie unter $RED superuser.txt 
 echo
 
 cd /root
-rm -rf gameserver
+rm -rf gameserver 
 exec bash
 
 fi
