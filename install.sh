@@ -57,6 +57,12 @@ echo $newuser:$randompw | chpasswd
 echo $newuser $randompw > ../superuser.txt
 usermod -aG sudo $newuser
 
+# Create Folder #
+
+mkdir /home/servernauten/gameserver && chown -cR servernauten:servernauten /home/servernauten/gameserver
+mkdir /home/servernauten/mods && chown -cR servernauten:servernauten /home/servernauten/mods
+mkdir /home/servernauten/images && chown -cR servernauten:servernauten /home/servernauten/images
+
 clear
 echo
 echo -e "\t$BLUE Die Superuser Zugangsdaten finden Sie unter $RED superuser.txt $BLUE - bitte speichern Sie sich die Zugangsdaten lokal ab und löschen Sie die Datei $RED superuser.txt $BLUE auf dem Server! $NORMAL "
