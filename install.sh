@@ -59,7 +59,7 @@ usermod -aG sudo $newuser
 
 clear
 echo
-echo -e "\t$BLUE Die Superuser Zugangsdaten finden Sie unter $RED /superuser.txt $BLUE - bitte speichern Sie sich die Zugangsdaten lokal ab und löschen Sie die Datei $RED /superuser.txt $BLUE auf dem Server! $NORMAL "
+echo -e "\t$BLUE Die Superuser Zugangsdaten finden Sie unter $RED superuser.txt $BLUE - bitte speichern Sie sich die Zugangsdaten lokal ab und löschen Sie die Datei $RED superuser.txt $BLUE auf dem Server! $NORMAL "
 echo
 
 cd /root
