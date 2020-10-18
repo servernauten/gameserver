@@ -38,8 +38,10 @@ echo -e "\t$BLUE servernauten Install Gameserver V 1.0 "
 echo -e "\t$BLUE ===================================== $NORMAL"
 echo
 
-# # # Install Sudo # # #
+# # # Install Software # # #
 apt install sudo -y
+apt install openjdk-11-jre-headless -y
+echo -e "\t$NORMAL[$GREEN✓$NORMAL] openjdk-11-jre-headless "
 
 # # # Create User servernauten with random password # # #
 
