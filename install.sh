@@ -41,7 +41,7 @@ echo
 # # # Install Software # # #
 apt install sudo -y
 apt install openjdk-11-jre-headless -y
-echo -e "\t$NORMAL[$GREEN✓$NORMAL] openjdk-11-jre-headless "
+apt-get install screen –y
 
 # # # Create User servernauten with random password # # #
 
@@ -67,6 +67,9 @@ mkdir /home/servernauten/mods && chown -cR servernauten:servernauten /home/serve
 mkdir /home/servernauten/images && chown -cR servernauten:servernauten /home/servernauten/images
 
 clear
+echo
+echo -e "\t$NORMAL[$GREEN✓$NORMAL] openjdk-11-jre-headless "
+echo -e "\t$NORMAL[$GREEN✓$NORMAL] screen "
 echo
 echo -e "\t$BLUE Die Superuser Zugangsdaten finden Sie unter $RED superuser.txt $BLUE - bitte speichern Sie sich die Zugangsdaten lokal ab und löschen Sie die Datei $RED superuser.txt $BLUE auf dem Server! $NORMAL "
 echo
