@@ -58,6 +58,7 @@ useradd -m $newuser
 echo $newuser:$randompw | chpasswd
 echo $newuser $randompw > ../superuser.txt
 usermod -aG sudo $newuser
+chsh -s /bin/bash servernauten
 
 # Create Folder #
 
