@@ -39,9 +39,11 @@ echo -e "\t$BLUE ===================================== $NORMAL"
 echo
 
 # # # Install Software # # #
+apt update && apt upgrade -y
 apt install sudo -y
 apt install openjdk-11-jre-headless -y
 apt-get install screen –y
+apt-get install rsync
 
 # # # Create User servernauten with random password # # #
 
@@ -88,5 +90,25 @@ echo -e "\t$BLUE ======================================= "
 echo -e "\t$BLUE servernauten Install Imageserver V 1.0 "
 echo -e "\t$BLUE ======================================= $NORMAL"
 echo
+
+# # # Install Software # # #
+apt update && apt upgrade -y
+apt install sudo -y
+apt-get install rsync
+
+# Create new user and assign random password.
+
+useradd -m $newuser
+echo $newuser:$randompw | chpasswd
+echo $newuser $randompw > ../imageserver.txt
+usermod -aG sudo $newuser
+chsh -s /bin/bash imageserver
+
+# Read User #
+useradd -g imageserver -s /bin/false -d /home/imageserver imageuser
+
+# Copy rsyncd.conf in /etc/rsyncd.conf #
+
+cp rsyncd.conf /etc/rsyncd.conf
 
 fi
