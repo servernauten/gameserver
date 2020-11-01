@@ -96,6 +96,15 @@ apt update && apt upgrade -y
 apt install sudo -y
 apt-get install rsync
 
+# # # Create User imageserver with random password # # #
+
+# Declare local variables, generate random password.
+## Adding sbin to path ##
+export PATH="$PATH:/sbin:/usr/sbin:usr/local/sbin"
+
+newuser="imageserver"
+randompw=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)
+
 # Create new user and assign random password.
 
 useradd -m $newuser
