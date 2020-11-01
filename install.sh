@@ -111,4 +111,22 @@ useradd -g imageserver -s /bin/false -d /home/imageserver imageuser
 
 cp rsyncd.conf /etc/rsyncd.conf
 
+# Rsync Restart #
+
+/etc/init.d/rsync restart
+
+# Create imageserver Folder #
+
+mkdir /home/imageserver/masteraddons/
+mkdir /home/imageserver/mastermaps/
+mkdir /home/imageserver/mmasterserver/
+find /home/imageserver/mastermaps/ /home/imageserver/masteraddons/ -type f -exec chmod 640 {} \;
+find /home/imageserver/mastermaps/ /home/imageserver/masteraddons/ -type d -exec chmod 750 {} \;
+find /home/imageserver/masterserver/ -type d -exec chmod 750 {} \;
+find /home/imageserver/masterserver/ -type f -name "srcds_*" -o -name "hlds_*" -o -name "*.run" -o -name "*.sh" -exec chmod 750 {} \;
+find /home/imageserver/masterserver/ -type f ! -perm -750 ! -perm -755 -exec chmod 640 {} \;
+chown -cR imageserver:imageserver /home/imageserver/masteraddons/
+chown -cR imageserver:imageserver /home/imageserver/mastermaps/
+chown -cR imageserver:imageserver /home/imageserver/masterserver/
+
 fi
