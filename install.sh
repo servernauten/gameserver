@@ -128,7 +128,7 @@ cp rsyncd.conf /etc/rsyncd.conf
 
 mkdir /home/imageserver/masteraddons/
 mkdir /home/imageserver/mastermaps/
-mkdir /home/imageserver/mmasterserver/
+mkdir /home/imageserver/masterserver/
 find /home/imageserver/mastermaps/ /home/imageserver/masteraddons/ -type f -exec chmod 640 {} \;
 find /home/imageserver/mastermaps/ /home/imageserver/masteraddons/ -type d -exec chmod 750 {} \;
 find /home/imageserver/masterserver/ -type d -exec chmod 750 {} \;
