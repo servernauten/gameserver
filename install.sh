@@ -39,7 +39,7 @@ echo -e "\t$BLUE ===================================== $NORMAL"
 echo
 
 # # # Install Software # # #
-apt update && apt upgrade -y
+apt update -y
 apt install sudo -y
 apt install openjdk-11-jre-headless -y
 apt-get install screen –y
@@ -92,7 +92,7 @@ echo -e "\t$BLUE ======================================= $NORMAL"
 echo
 
 # # # Install Software # # #
-apt update && apt upgrade -y
+apt update -y
 apt install sudo -y
 apt-get install rsync
 
