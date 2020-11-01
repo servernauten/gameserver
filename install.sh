@@ -14,7 +14,7 @@ echo -e "\t$BLUE ================================= "
 echo
 echo -e "\t$GREEN # Was möchten Sie installieren? "
 echo
-echo -e "\t$GREEN #$NORMAL Webinterface $GREEN [1] $NORMAL Gameserver $GREEN [2] $NORMAL \c"
+echo -e "\t$GREEN #$NORMAL Webinterface $GREEN [1] $NORMAL Gameserver $GREEN [2] $NORMAL Imageserver $GREEN [3] $NORMAL \c"
 
 read installOptions
 
@@ -77,5 +77,16 @@ echo
 cd /root
 rm -rf gameserver 
 exec bash
+
+elif [[ "$installOptions" = "3" ]]; then
+
+# # # Install Webinterface # # #
+
+clear
+echo
+echo -e "\t$BLUE ======================================= "
+echo -e "\t$BLUE servernauten Install Imageserver V 1.0 "
+echo -e "\t$BLUE ======================================= $NORMAL"
+echo
 
 fi
