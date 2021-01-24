@@ -51,6 +51,8 @@ a2enconf php7.4-fpm
 systemctl reload apache2
 mkdir /usr/share/phpmyadmin/tmp/
 chown -R www-data:www-data /usr/share/phpmyadmin/tmp/
+chown -R www-data:www-data /var/www/html/
+
 
 cd /root
 rm -rf gameserver 
