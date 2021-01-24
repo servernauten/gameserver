@@ -28,23 +28,26 @@ echo -e "\t$BLUE ======================================= "
 echo -e "\t$BLUE servernauten Install Webinterface V 1.0 "
 echo -e "\t$BLUE ======================================= $NORMAL"
 echo
-echo -e "\t$GREEN # Was möchten Sie installieren? "
-echo
-echo -e "\t$GREEN #$NORMAL Webinterface mit Apache2, PHP 7.4, MariaDB und phpMyAdmin $GREEN [1] $NORMAL Webinterface mit Apache2, PHP 8, MariaDB und phpMyAdmin $GREEN [2] $NORMAL \c"
 
-read installOptionsWebinterface
-
-    if [[ "$installOptionsWebinterface" = "1" ]]; then
-    
-    elif [[ "installOptionsWebinterface" = "2" ]]; then
-    # # # Install Software # # #
+# # # Install Software # # #
     apt update -y
     apt upgrade -y
     apt install ca-certificates apt-transport-https lsb-release gnupg curl nano unzip -y
     apt install software-properties-common -y
-    add-apt-repository ppa:ondrej/php
-    fi
-      
+    add-apt-repository ppa:ondrej/php -y
+    apt update -y
+    apt install apache2 -y
+    apt install php8.0 php8.0-cli php8.0-common php8.0-curl php8.0-gd php8.0-intl php8.0-mbstring php8.0-mysql php8.0-opcache php8.0-readline php8.0-xml php8.0-xsl php8.0-zip php8.0-bz2 libapache2-mod-php8.0 -y
+    apt install mariadb-server mariadb-client -y
+    mysql_secure_installation
+    wget -O /usr/share/phpmyadmin.zip wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip
+    unzip /usr/share/phpmyadmin.zip
+    rm /usr/share/phpmyadmin.zip
+    mv /usr/share/phpMyAdmin-*-all-languages /usr/share/phpmyadmin
+    chmod -R 0755 /usr/share/phpmyadmin
+    cp phpmyadmin.conf /etc/apache2/conf-available/phpmyadmin.conf
+    
+    
 elif [[ "$installOptions" = "2" ]]; then
 
 clear
