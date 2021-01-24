@@ -28,7 +28,23 @@ echo -e "\t$BLUE ======================================= "
 echo -e "\t$BLUE servernauten Install Webinterface V 1.0 "
 echo -e "\t$BLUE ======================================= $NORMAL"
 echo
+echo -e "\t$GREEN # Was möchten Sie installieren? "
+echo
+echo -e "\t$GREEN #$NORMAL Webinterface mit Apache2, PHP 7.4, MariaDB und phpMyAdmin $GREEN [1] $NORMAL Webinterface mit Apache2, PHP 8, MariaDB und phpMyAdmin $GREEN [2] $NORMAL \c"
 
+read installOptionsWebinterface
+
+    if [[ "$installOptionsWebinterface" = "1" ]]; then
+    
+    elif [[ "installOptionsWebinterface" = "2" ]]; then
+    # # # Install Software # # #
+    apt update -y
+    apt upgrade -y
+    apt install ca-certificates apt-transport-https lsb-release gnupg curl nano unzip -y
+    apt install software-properties-common -y
+    add-apt-repository ppa:ondrej/php
+    fi
+      
 elif [[ "$installOptions" = "2" ]]; then
 
 clear
