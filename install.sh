@@ -51,6 +51,10 @@ a2enconf phpmyadmin
 systemctl reload apache2
 mkdir /usr/share/phpmyadmin/tmp/
 chown -R www-data:www-data /usr/share/phpmyadmin/tmp/
+
+cd /root
+rm -rf gameserver 
+exec bash
     
 elif [[ "$installOptions" = "2" ]]; then
 
