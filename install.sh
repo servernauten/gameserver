@@ -44,7 +44,7 @@ wget -O /usr/share/phpmyadmin.zip wget https://www.phpmyadmin.net/downloads/phpM
 unzip /usr/share/phpmyadmin.zip
 rm /usr/share/phpmyadmin.zip
 mkdir /usr/share/phpmyadmin
-cp -r /usr/share/phpMyAdmin-*/* /usr/share/phpmyadmin/
+mv /usr/share/phpMyAdmin-* /usr/share/phpmyadmin/
 chmod -R 0755 /usr/share/phpmyadmin
 cp phpmyadmin.conf /etc/apache2/conf-available/phpmyadmin.conf
 a2enconf phpmyadmin
