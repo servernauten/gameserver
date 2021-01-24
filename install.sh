@@ -37,7 +37,7 @@ apt install software-properties-common -y
 add-apt-repository ppa:ondrej/php -y
 apt update -y
 apt install apache2 -y
-apt install php7.4 php7.4-cli php7.4-common php7.4-curl php7.4-gd php7.4-intl php7.4-json php7.4-mbstring php7.4-mysql php7.4-opcache php7.4-readline php7.4-xml php7.4-xsl php7.4-zip php7.4-bz2 libapache2-mod-php7.4 -y
+apt install php7.4 php7.4-cli php7.4-common php7.4-curl php7.4-gd php7.4-intl php7.4-json php7.4-mbstring php7.4-mysql php7.4-opcache php7.4-readline php7.4-xml php7.4-xsl php7.4-zip php7.4-bz2 libapache2-mod-php7.4 php7.4-fpm -y
 apt install mariadb-server mariadb-client -y
 mysql_secure_installation
 wget -O /usr/share/phpmyadmin.zip wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip
@@ -48,6 +48,7 @@ mv /usr/share/phpMyAdmin-* /usr/share/phpmyadmin/
 chmod -R 0755 /usr/share/phpmyadmin
 cp phpmyadmin.conf /etc/apache2/conf-available/phpmyadmin.conf
 a2enconf phpmyadmin
+a2enconf php7.4-fpm
 systemctl reload apache2
 mkdir /usr/share/phpmyadmin/tmp/
 chown -R www-data:www-data /usr/share/phpmyadmin/tmp/
